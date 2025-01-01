@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "es2020", // 支持 import.meta
+    "target": "es2020", // 确保编译目标与 module 对应
+    "strict": true,
+    "composite": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ]
+}
