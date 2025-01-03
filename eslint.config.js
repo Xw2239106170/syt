@@ -19,7 +19,7 @@ export default [
       'no-unexpected-multiline': 'error' // 禁止空余的多行
     }
   },
-
+  
   {
     name: 'app/files-to-ignore',
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**']

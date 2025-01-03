@@ -4,14 +4,37 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/login/UserLogin.vue')
+    },
+    {
       path: '/',
       name: 'layout',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('@/views/layout/LayoutContainer.vue')
+      component: () => import('@/views/layout/LayoutContainer.vue'),
+      redirect: '/hospital/home',
+      children: [
+        {
+          path: '/hospital/user',
+          component: () => import('@/views/user/UserHome.vue')
+        },
+        {
+          path: '/hospital/helper',
+          component: () => import('@/views/help/UserHelper.vue')
+        },
+        {
+          path:'/hospital/home',
+          component:() => import('@/views/home/MainHome.vue')
+        }
+      ]
     }
-  ]
+  ],
+  scrollBehavior(){
+    return{
+      left:0,
+      top:0
+    }
+  }
 })
 
 export default router
