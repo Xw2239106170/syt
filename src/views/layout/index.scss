@@ -1,0 +1,229 @@
+// 沾满这个屏幕
+el-container {
+  margin-bottom: 40px;
+  height: 100vh;
+}
+// 居中
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout-container {
+  height: 100vh;
+  .layout-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    padding: 10px 0;
+    .header-left {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .left-img {
+        width: 8vh;
+        height: 8vh;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .left-logo {
+        margin-left: 20px;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #059ff7;
+      }
+    }
+    .header-right {
+      display: flex;
+      width: 20%;
+
+      .el-menu-popper-demo {
+        margin-left: 400px;
+        border-left: none;
+      }
+
+      .right-helper {
+        margin-right: 30px;
+      }
+    }
+    .header-search {
+      width: 40%;
+      height: 100%;
+      .search-btn {
+        margin-left: 25px;
+      }
+      .search-input {
+        width: 250px;
+        height: 50px;
+        padding-left: 10px;
+        border-radius: 20px;
+        border: none;
+        font-size: 14px;
+        transition: border-color 1s; /* 平滑过渡 */
+        &:focus {
+          border: 1.5px solid #059ff7;
+        }
+      }
+    }
+  }
+  .layout-nav {
+    height: 100vh;
+    background-color: lightblue;
+  }
+  .layout-main {
+    margin-top: 10vh;
+    width: 100%;
+    height: 100vh;
+  }
+  .layout-footer {
+    border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6vh;
+    background-color: #fff;
+    display: flex;
+    .footer-left,
+    .footer-right{
+      width: 50%;
+      height: 100%;
+      span{
+        font-size: 14px;
+        margin-left: 20px;
+        color: gray;
+      }
+      .right-helper{
+        margin-right: 40px;
+      }
+    }
+  }
+}
+
+// 弹窗
+.login-drawer {
+  height: 450px;
+  display: flex;
+  .drawer-right,
+  .drawer-left {
+    height: 100%;
+    width: 50%;
+  }
+  .drawer-left {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow:
+      0 10px 20px rgba(0, 0, 0, 0.3),
+      0 6px 6px rgba(0, 0, 0, 0);
+    .left-title,
+    .left-input,
+    .left-btn,
+    .left-switch {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 25%;
+    }
+    .left-title {
+      span {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+    .left-input {
+      input {
+        width: 250px;
+        height: 40px;
+        border: none;
+        transition: border-color 1s; /* 平滑过渡 */
+        &:focus {
+          border-bottom: 1px solid #059ff7;
+        }
+      }
+    }
+    .left-btn {
+      button {
+        width: 300px;
+        height: 50px;
+        border-radius: 20px;
+        border: 1px solid #059ff7;
+        background-color: #2c73d2;
+        color: #fff;
+        &:hover {
+          background-color: #059ff7;
+        }
+      }
+    }
+    .left-switch {
+      display: flex;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+
+      &:hover {
+        cursor: pointer;
+      }
+      span {
+        margin-top: 15px;
+      }
+    }
+  }
+  .drawer-right {
+    display: flex;
+    position: relative;
+    
+    .right-top {
+      width: 100%;
+      height: 60%;
+
+      .qr-code {
+        width: 160px;
+        height: 200px;
+        text-align: center;
+        img {
+          margin: 0 auto;
+          width: 150px;
+          height: 150px;
+        }
+        span{
+          display: block;
+          margin-top: 10px;
+        }
+      }
+    }
+    .right-bottom {
+      width: 400px;
+      height:200px;
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      span{
+        letter-spacing: 3px;
+        text-align: center;
+        width: 300px;
+        height: 50px;
+        &:first-child{
+          font-size: 20px;
+          font-weight: bold;
+        }
+        &:last-child{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
