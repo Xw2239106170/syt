@@ -23,16 +23,16 @@ const router = createRouter({
           component: () => import('@/views/help/UserHelper.vue')
         },
         {
-          path:'/hospital/home',
-          component:() => import('@/views/home/MainHome.vue')
+          path: '/hospital/home',
+          component: () => import('@/views/home/MainHome.vue')
         }
       ]
     }
   ],
-  scrollBehavior(){
-    return{
-      left:0,
-      top:0
+  scrollBehavior() {
+    return {
+      left: 0,
+      top: 0
     }
   }
 })

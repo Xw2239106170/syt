@@ -10,15 +10,22 @@ const searchHospital = (name: string) => {
 }
 
 // 弹出层
-interface qrCode{
-  img: string,
-  word:string
+interface qrCode {
+  img: string
+  word: string
 }
 
-const qrCodeInfo = ref<qrCode[]>(
-  [{img:'https://aiwebstudy.oss-cn-beijing.aliyuncs.com/ff9b6ea2-215a-47b7-8289-72d507bc57fc.png', word:'扫码关注，快速预约挂号'},{img:'https://aiwebstudy.oss-cn-beijing.aliyuncs.com/ff9b6ea2-215a-47b7-8289-72d507bc57fc.png', word:'扫码下载APP'}]
-)
-const footer = ref<string[]>(['帮助中心','合作伙伴','用户协议','隐私协议'])
+const qrCodeInfo = ref<qrCode[]>([
+  {
+    img: 'https://aiwebstudy.oss-cn-beijing.aliyuncs.com/ff9b6ea2-215a-47b7-8289-72d507bc57fc.png',
+    word: '扫码关注，快速预约挂号'
+  },
+  {
+    img: 'https://aiwebstudy.oss-cn-beijing.aliyuncs.com/ff9b6ea2-215a-47b7-8289-72d507bc57fc.png',
+    word: '扫码下载APP'
+  }
+])
+const footer = ref<string[]>(['帮助中心', '合作伙伴', '用户协议', '隐私协议'])
 const dialogVisible = ref<boolean>()
 const phoneNumber = ref<string>()
 const handleClose = () => {
@@ -27,7 +34,7 @@ const handleClose = () => {
 }
 // 发送验证码
 const sendCode = () => {
-    console.log("你输入的电话号码是" + phoneNumber.value)
+  console.log('你输入的电话号码是' + phoneNumber.value)
 }
 </script>
 <template>
@@ -64,7 +71,14 @@ const sendCode = () => {
           <span>电话挂号010-56253825</span>
         </div>
         <div class="footer-right center">
-          <el-link target="_blank" class="right-helper" :underline="false" v-for="(item, index) in footer" :key="index">{{ item }}</el-link>
+          <el-link
+            target="_blank"
+            class="right-helper"
+            :underline="false"
+            v-for="(item, index) in footer"
+            :key="index"
+            >{{ item }}</el-link
+          >
         </div>
       </el-footer>
     </el-container>
@@ -108,17 +122,16 @@ const sendCode = () => {
         </div>
       </div>
       <div class="drawer-right">
-          <div class="right-top center" v-for="(item, index) in qrCodeInfo" :key="index">
-            <div class="qr-code">
-              <img :src="item.img" alt="">
-              <span>{{ item.word }}</span>
-            </div>
-
+        <div class="right-top center" v-for="(item, index) in qrCodeInfo" :key="index">
+          <div class="qr-code">
+            <img :src="item.img" alt="" />
+            <span>{{ item.word }}</span>
           </div>
-          <div class="right-bottom center">
-            <span> xxxxxx官方指定平台</span>
-            <span>快速挂号 安全放心</span>
-          </div>
+        </div>
+        <div class="right-bottom center">
+          <span> xxxxxx官方指定平台</span>
+          <span>快速挂号 安全放心</span>
+        </div>
       </div>
     </div>
   </el-dialog>
@@ -126,6 +139,4 @@ const sendCode = () => {
 
 <style scoped lang="scss">
 @use './index.scss';
-
-
 </style>
