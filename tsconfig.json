@@ -3,7 +3,8 @@
     "module": "es2020", // 支持 import.meta
     "target": "es2020", // 确保编译目标与 module 对应
     "strict": true,
-    "composite": true
+    "composite": true,
+    "verbatimModuleSyntax": true
   },
   "files": [],
   "references": [

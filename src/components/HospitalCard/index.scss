@@ -1,0 +1,17 @@
+.card-container {
+  margin: 50px;
+  width: 550px;
+  height: 200px;
+  background-color: blue;
+  display: flex;
+  .card-left{
+    width: 70%;
+    height: 100%;
+    background-color: pink;
+  }
+  .card-right{
+    width: 30%;
+    height: 100%;
+    background-color: black;
+  }
+}
