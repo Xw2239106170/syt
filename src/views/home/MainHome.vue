@@ -15,7 +15,7 @@
     </div>
     <div class="home-main">
       <el-row :gutter="20">
-        <el-col :span="20">
+        <el-col :span="19">
           <div class="main-top">
             <h3>医院</h3>
             <div class="top-level">
@@ -28,10 +28,24 @@
             </div>
           </div>
           <div class="main-bottom">
-              <HospitalCard></HospitalCard>
+            <HospitalCard v-for="item in 8" :key="item"></HospitalCard>
+            <div class="page-helper">
+              <el-pagination
+              v-model:current-page="currentPage"
+              v-model:page-size="pageSize"
+              :page-sizes="[10, 20, 30, 40]"
+              size="large"
+              :disabled="disabled"
+              background="true"
+              layout="sizes, prev, pager, next"
+              :total="7"
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+            />
+            </div>
           </div>
         </el-col>
-        <el-col :span="4">这是客体</el-col>
+        <el-col :span="5">这是客体</el-col>
       </el-row>
     </div>
   </div>
@@ -40,16 +54,9 @@
 <script lang="ts" setup>
 import { Postcard, Search } from '@element-plus/icons-vue'
 import { ref, onMounted } from 'vue'
+import { bannerList } from '@/utils/mock.js'
 
-// 头部banner
-const bannerInput = ref<string>('')
-const bannerList = ref<string[]>([
-  'https://aiwebstudy.oss-cn-beijing.aliyuncs.com/83b612bf-8a74-40c9-8d16-ba566d3ce13f.png',
-  'https://aiwebstudy.oss-cn-beijing.aliyuncs.com/83b612bf-8a74-40c9-8d16-ba566d3ce13f.png',
-  'https://aiwebstudy.oss-cn-beijing.aliyuncs.com/83b612bf-8a74-40c9-8d16-ba566d3ce13f.png',
-  'https://aiwebstudy.oss-cn-beijing.aliyuncs.com/83b612bf-8a74-40c9-8d16-ba566d3ce13f.png'
-])
-
+const disabled = ref(false)
 // 自动补全输入框
 interface LinkItem {
   label: string
@@ -120,6 +127,16 @@ const tagsArea = ref<tagList[]>([
   { checked: false, label: '辽林' },
   { checked: false, label: '海南' }
 ])
+
+// 分页查询按钮
+const currentPage = ref<number>(2)
+const pageSize = ref<number>(5)
+const handleSizeChange = (val: number) => {
+  console.log(`${val} items per page`)
+}
+const handleCurrentChange = (val: number) => {
+  console.log(`current page: ${val}`)
+}
 </script>
 
 <style lang="scss" scoped>

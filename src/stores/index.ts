@@ -8,3 +8,4 @@ pinia.use(persist)
 export default pinia
 
 // 导出子模块
+export * from './modules/user'
